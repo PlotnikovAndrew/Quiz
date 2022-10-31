@@ -1,6 +1,7 @@
-package ru.otus.homeworks.hw2.ru.otus.homeworks.hw2;
+package ru.otus.homeworks.hw2;
 
-import static ru.otus.homeworks.hw2.ru.otus.homeworks.hw2.Answer.showAnswers;
+import static ru.otus.homeworks.hw2.Answer.*;
+import static ru.otus.homeworks.hw2.Сounter.showCount;
 
 public class Question {
     private static final String PREFACE_QUESTION = "Из какого фильма эта цитата?: ";
@@ -8,10 +9,12 @@ public class Question {
             "Ну, юноша, самовыражайтесь быстрее",
             "Да я же говорю - я за кефиром пошёл, а тут пираты"};
 
-    public static void askQuestions() {
+    static void askQuestions() {
         for (int i = 0; i < questions.length; i++) {
             System.out.println(PREFACE_QUESTION + questions[i]);
             showAnswers(i);
+            checkingAnswers(acceptAnswers(), i);
         }
+        showCount ();
     }
 }
