@@ -1,6 +1,6 @@
 package ru.otus.homeworks.hw2;
 
-public class Сounter {
+public class Counter {
     static int wrongCount = 0;
     static int correctCount = 0;
 

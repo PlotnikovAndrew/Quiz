@@ -1,7 +1,7 @@
 package ru.otus.homeworks.hw2;
 
 import static ru.otus.homeworks.hw2.Answer.*;
-import static ru.otus.homeworks.hw2.Сounter.showCount;
+import static ru.otus.homeworks.hw2.Counter.showCount;
 
 public class Question {
     private static final String PREFACE_QUESTION = "Из какого фильма эта цитата?: ";

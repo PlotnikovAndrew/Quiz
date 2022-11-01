@@ -2,8 +2,7 @@ package ru.otus.homeworks.hw2;
 
 import java.util.Scanner;
 
-import static ru.otus.homeworks.hw2.Сounter.addCorrectCount;
-import static ru.otus.homeworks.hw2.Сounter.addWrongCount;
+import static ru.otus.homeworks.hw2.Counter.*;
 
 public class Answer {
 
@@ -21,12 +20,17 @@ public class Answer {
     }
     static int acceptAnswers(){
         Scanner scanner = new Scanner(System.in);
-        int responseFromTheConsole = scanner.nextInt();
-        return responseFromTheConsole;
+        String responseFromTheConsoleString = scanner.next();
+        try {
+            return Integer.parseInt(responseFromTheConsoleString);
+        }
+        catch (NumberFormatException name){
+            return -1;
+        }
     }
     static void checkingAnswers(int response, int numberQuestion){
 
-        if (response > answerOptions[numberQuestion].length) {
+        if (response < 1 || response > answerOptions[numberQuestion].length) {
             System.out.println("Неверно! Правильный ответ: " + answerOptions[numberQuestion][correctAnswers[numberQuestion]-1]);
             addWrongCount();
             return;
