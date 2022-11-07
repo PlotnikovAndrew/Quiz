@@ -1,20 +1,19 @@
 package ru.otus.homeworks.hw2;
 
-import static ru.otus.homeworks.hw2.Answer.*;
-import static ru.otus.homeworks.hw2.Counter.showCount;
 
 public class Question {
     private static final String PREFACE_QUESTION = "Из какого фильма эта цитата?: ";
-    static String[] questions = {"Идите, идите. Мы Вас вылечим. Алкоголики - это наш профиль.",
-            "Ну, юноша, самовыражайтесь быстрее",
-            "Да я же говорю - я за кефиром пошёл, а тут пираты"};
+    private String question;
+    private int correctAnswer;
+    private String[] answers;
 
-    static void askQuestions() {
-        for (int i = 0; i < questions.length; i++) {
-            System.out.println(PREFACE_QUESTION + questions[i]);
-            showAnswers(i);
-            checkingAnswers(acceptAnswers(), i);
-        }
-        showCount ();
+    public Question(String question, String[] answer, int correctAnswer) {
+        this.question = question;
+        this.answers = answer;
+        this.correctAnswer = correctAnswer;
+    }
+
+    void showQuestion() {
+        System.out.println(PREFACE_QUESTION + this.question);
     }
 }

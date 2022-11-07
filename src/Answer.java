@@ -5,20 +5,22 @@ import java.util.Scanner;
 import static ru.otus.homeworks.hw2.Counter.*;
 
 public class Answer {
+    private String[] answers;
+    public Answer (String[] answer){
+        this.answers = answer;
+    }
 
-    static String[][] answerOptions = {
-            {"Кавказкая пленница, или Новые приключения Шурика", "Человек с бульвара Капуцинов", "Бриллиантовая рука"},
-            {"Доживем до понедельника", "Королева бензоколонки", "Покровские ворота"},
-            {"Кин-дза-дза!", "Невероятные приключения итальянцев в России", "Гостья из будущего"}
-    };
-    static int[] correctAnswers = {1, 3, 3};
+    String[] getAnswers(){
+        return this.answers;
+    }
 
-    static void showAnswers(int numberQuestion){
-        for (int j = 0; j < answerOptions.length; j++) {
-            System.out.println(j+1 + ". " + answerOptions[numberQuestion][j]);
+    void showAnswers(String[] answers){
+        for (int i = 0; i < answers.length; i++){
+            System.out.println((i+1)+ ") " + answers[i]);
         }
     }
-    static int acceptAnswers(){
+
+    int acceptAnswers(){
         Scanner scanner = new Scanner(System.in);
         String responseFromTheConsoleString = scanner.next();
         try {
@@ -28,22 +30,20 @@ public class Answer {
             return -1;
         }
     }
-    static void checkingAnswers(int response, int numberQuestion){
 
-        if (response < 1 || response > answerOptions[numberQuestion].length) {
-            System.out.println("Неверно! Правильный ответ: " + answerOptions[numberQuestion][correctAnswers[numberQuestion]-1]);
+    void checkingAnswers(int response, String[] answers, String correctAnswersString, int correctAnswersInt){
+
+        if (response < 1 || response > answers.length) {
+            System.out.println("Неверно! Правильный ответ: " + correctAnswersString);
             addWrongCount();
             return;
         }
-        System.out.println("Ваш ответ: " + answerOptions[numberQuestion][response-1]);
-        if (response == correctAnswers[numberQuestion]){
+        if (response == correctAnswersInt){
             System.out.println("Верно!");
             addCorrectCount();
         } else {
-            System.out.println("Неверно! Правильный ответ: " + answerOptions[numberQuestion][correctAnswers[numberQuestion]-1]);
+            System.out.println("Неверно! Правильный ответ: " + correctAnswersString);
             addWrongCount();
         }
     }
 }
-
-
