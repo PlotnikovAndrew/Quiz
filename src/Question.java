@@ -16,4 +16,16 @@ public class Question {
     void showQuestion() {
         System.out.println(PREFACE_QUESTION + this.question);
     }
+
+    String[] getAnswers(){
+        return this.answers;
+    }
+
+    int getCorrectAnswerInt(){
+        return this.correctAnswer;
+    }
+
+    String getCorrectAnswerString(int CorrectAnswerInt){
+        return this.answers[CorrectAnswerInt - 1];
+    }
 }
